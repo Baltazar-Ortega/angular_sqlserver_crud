@@ -1,0 +1,29 @@
+<div class="col-md-5 offset-md-1">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+            <input [(ngModel)]="cita.fecha_hora" type="text" name="nombre" [placeholder]="actualDate" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="cita.dni_cliente" type="number" name="dni_cliente" placeholder="dni_cliente" class="form-control">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="cita.dni_empleado" type="number" name="dni_empleado" placeholder="dni_empleado" class="form-control">
+        </div>
+        <button class="btn btn-success btn-block" (click)="edit ? updateCita() : saveNewCita()">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-5">
+<div class="card card-body text-center">
+<img src="assets/empleado.png" class="card-img-top">
+<h3>{{cita.fecha_hora == '' ? 'Fecha y hora' : cita.fecha_hora}}</h3>
+<p>{{cita.dni_cliente == '' ? 'dni cliente' : cita.dni_cliente}}</p>
+<p>{{cita.dni_empleado == '' ? 'dni_empleado' : cita.dni_empleado}}</p>
+</div>
+</div>

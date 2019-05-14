@@ -1,0 +1,38 @@
+<div class="col-md-12 text-center">
+  <h2 class="mb-5">Cosmeticos</h2>
+</div>
+
+<div class="col-md-4" *ngFor="let cosmetico of cosmeticos">
+  <div class="card text-center mt-3">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{cosmetico.nombre}}
+      <button class="btn btn-danger" (click)="deleteCosmetico(cosmetico.codigo)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img src="assets/bolsaCompras.png" class="card-img-top">
+    <div class="card-body">
+      <p>Cantidad: {{cosmetico.cantidad}}</p>
+      <h4>Precio: {{cosmetico.PRECIO}}</h4>
+      <a class="btn btn-info btn-block" [routerLink]="['/cosmeticos/edit', cosmetico.codigo]"> <!--Se le manda un objeto con propiedad id-->
+        Editar articulo
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 text-center">
+  <button class="mt-5 btn btn-success" routerLink="/cosmeticos/add">
+    Agregar articulo
+  </button>
+</div>
+
+<div class="col-md-12 text-center">
+  <h2 class="mb-5 mt-5 text-center">Ventas</h2>
+</div>
+
+
+<div class="col-md-12 text-center">
+  <app-venta-list></app-venta-list>
+</div>
+

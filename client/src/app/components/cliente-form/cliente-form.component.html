@@ -1,0 +1,53 @@
+<div class="col-md-5 offset-md-1">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+            <input [(ngModel)]="cliente.nombre" type="text" name="nombre" placeholder="Nombre" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="cliente.apellido_paterno" type="text" name="apellido_paterno" placeholder="Apellido paterno" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="cliente.apellido_materno" type="text" name="apellido_materno" placeholder="Apellido materno" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+            <input [(ngModel)]="cliente.profesion" type="text" name="profesion" placeholder="Profesion" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="cliente.telefono" type="text" name="telefono" placeholder="Telefono" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+        <input [(ngModel)]="cliente.calle" type="text" name="calle" placeholder="Calle" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+        <input [(ngModel)]="cliente.colonia" type="text" name="colonia" placeholder="Colonia" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+          <input [(ngModel)]="cliente.numero_casa" type="text" name="numero_casa" placeholder="Numero de casa" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+        <input [(ngModel)]="cliente.tratamientos_medicos" type="text" name="tratamientos medicos" placeholder="Tratamientos medicos" class="form-control" autofocus>
+    </div>
+        <button class="btn btn-success btn-block" (click)="edit ? updateCliente() : saveNewCliente()">
+          {{cliente.nombre == '' ? 'Guardar' : 'Guardar cambios'}}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+<div class="card card-body text-center">
+<img src="assets/noimage.png" class="card-img-top">
+<h3>{{cliente.nombre == '' ? 'Nombre del cliente' : cliente.nombre}}</h3>
+<p>{{cliente.apellido_paterno == '' ? 'Apellido paterno' : cliente.apellido_paterno}}</p>
+<p>{{cliente.apellido_materno == '' ? 'Apellido materno' : cliente.apellido_materno}}</p>
+<p>{{cliente.profesion == '' ? 'Profesion' : cliente.profesion}}</p>
+<p>{{cliente.telefono == '' ? 'Telefono' : cliente.telefono}}</p>
+<p>{{cliente.calle == '' ? 'Calle' : cliente.calle}}</p>
+<p>{{cliente.colonia == '' ? 'Colonia' : cliente.colonia}}</p>
+<p>{{cliente.numero_casa == '' ? 'Numero_casa' : cliente.numero_casa}}</p>
+<p>{{cliente.tratamientos_medicos == '' ? 'Tratamientos_medicos' : cliente.tratamientos_medicos}}</p>
+</div>
+</div>

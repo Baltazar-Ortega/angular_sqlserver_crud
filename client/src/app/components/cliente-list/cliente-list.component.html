@@ -1,0 +1,27 @@
+<h2 class="mb-5 text-center">Clientes</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <th scope="row">{{cliente.nombre}} {{cliente.apellido_paterno}} {{cliente.apellido_materno}}</th>
+      <td>{{cliente.telefono}}</td>
+      <td>{{cliente.calle}} <br> Colonia: {{cliente.colonia}} <br>Numero: {{cliente.numero_casa}}</td>
+      <td><a class="btn bg-info
+        " [routerLink]="['/clientes/edit', cliente.dni]"><i class="fas fa-user-edit"></i></a></td>
+      <td><a class="btn bg-danger" (click)="deleteCliente(cliente.dni)"><i class="far fa-trash-alt"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-success" routerLink="/clientes/add">Nuevo cliente</button>
+
+<app-servicio-list></app-servicio-list>

@@ -1,0 +1,23 @@
+<h2 class="mb-5 mt-5 text-center">Servicios</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Cliente</th>
+      <th scope="col">Empleado</th>
+      <th scope="col">Servicio</th>
+      <th scope="col">Fecha y Hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let servicio of servicios">
+      <td>{{servicio.nombre_cliente}}</td>
+      <td>{{servicio.nombre_empleado}}</td>
+      <td>{{servicio.servicio}}</td>
+      <td>{{servicio.fecha_hora}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+

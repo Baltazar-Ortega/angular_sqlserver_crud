@@ -1,0 +1,27 @@
+<div class="col-md-12 text-center">
+  <h2 class="mb-5">Empleados</h2>
+</div>
+
+<div class="col-md-4" *ngFor="let empleado of empleados">
+  <div class="card text-center mt-3">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      {{empleado.nombre}}
+      <button class="btn btn-danger" (click)="deleteEmpleado(empleado.dni)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <img src="assets/empleado.png" class="card-img-top">
+    <div class="card-body">
+      <p>Especialidad: {{empleado.especialidad}}</p>
+      <a class="btn btn-info btn-block" [routerLink]="['/empleados/edit', empleado.dni]"> <!--Se le manda un objeto con propiedad id-->
+        Editar empleado
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 text-center">
+  <button class="mt-5 btn btn-success" routerLink="/empleados/add">
+    Agregar empleado
+  </button>
+</div>

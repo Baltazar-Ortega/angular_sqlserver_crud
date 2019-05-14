@@ -1,0 +1,33 @@
+<div class="col-md-5 offset-md-1">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+            <input [(ngModel)]="empleado.nombre" type="text" name="nombre" placeholder="Nombre" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="empleado.apellido_paterno" type="text" name="apellido_paterno" placeholder="Apellido paterno" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]="empleado.apellido_materno" type="text" name="apellido_materno" placeholder="Apellido materno" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+            <input [(ngModel)]="empleado.especialidad" type="text" name="especialidad" placeholder="Especialidad" class="form-control" autofocus>
+        </div>
+        <button class="btn btn-success btn-block" (click)="edit ? updateEmpleado() : saveNewEmpleado()">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-5">
+<div class="card card-body text-center">
+<img src="assets/empleado.png" class="card-img-top">
+<h3>{{empleado.nombre == '' ? 'Nombre del empleado' : empleado.nombre}}</h3>
+<p>{{empleado.apellido_paterno == '' ? 'Apellido paterno' : empleado.apellido_paterno}}</p>
+<p>{{empleado.apellido_materno == '' ? 'Apellido materno' : empleado.apellido_materno}}</p>
+<p>{{empleado.especialidad == '' ? 'Especialidad' : empleado.especialidad}}</p>
+</div>
+</div>
