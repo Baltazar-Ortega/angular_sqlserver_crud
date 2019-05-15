@@ -6,7 +6,7 @@
       <th scope="col">Cliente</th>
       <th scope="col">Empleado</th>
       <th scope="col">Servicio</th>
-      <th scope="col">Fecha y Hora</th>
+      <th scope="col">Fecha</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
       <td>{{servicio.nombre_cliente}}</td>
       <td>{{servicio.nombre_empleado}}</td>
       <td>{{servicio.servicio}}</td>
-      <td>{{servicio.fecha_hora}}</td>
+      <td>{{ setDate(servicio.fecha_hora) }}</td>
     </tr>
   </tbody>
 </table>

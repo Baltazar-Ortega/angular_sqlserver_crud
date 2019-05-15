@@ -32,7 +32,7 @@ export class EmpleadoFormComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.empleado = res.recordset[0];
+            this.empleado = (res as any).recordset[0];
             this.edit = true;
           },
           err => console.log(err)

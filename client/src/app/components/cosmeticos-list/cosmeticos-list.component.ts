@@ -22,7 +22,7 @@ export class CosmeticosListComponent implements OnInit {
     this.cosmeticosService.getCosmeticos() // Esto es un observable
         .subscribe(
           res => {
-            this.cosmeticos = res.recordset;
+            this.cosmeticos = (res as any).recordset;
           },
           err => console.error(err)
         );

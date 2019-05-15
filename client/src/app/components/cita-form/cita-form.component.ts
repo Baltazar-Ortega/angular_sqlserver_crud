@@ -31,7 +31,7 @@ export class CitaFormComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.cita = res.recordset[0];
+            this.cita = (res as any).recordset[0];
             this.edit = true;
           },
           err => console.log(err)

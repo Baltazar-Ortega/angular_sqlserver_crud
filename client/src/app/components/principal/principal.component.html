@@ -5,7 +5,7 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Fecha y Hora</th>
+      <th scope="col">Fecha</th>
       <th scope="col">Cliente</th>
       <th scope="col">Empleado</th>
       <th scope="col">Eliminar</th>
@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let cita of citas">
-      <th scope="row">{{ cita.fecha_hora }}</th>
+      <th scope="row">{{ setDate(cita.fecha_hora) }}</th>
       <td>{{cita.nombre_cliente}}</td>
       <td>{{cita.nombre_empleado}}</td>
       <td><a class="btn bg-danger" (click)="deleteCita(cita.id)"><i class="far fa-trash-alt"></i></a></td>

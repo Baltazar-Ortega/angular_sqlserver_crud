@@ -20,7 +20,7 @@ export class ClienteListComponent implements OnInit {
     this.clientesService.getClientes() // Esto es un observable
         .subscribe(
           res => {
-            this.clientes = res.recordset;
+            this.clientes = (res as any).recordset;
           },
           err => console.error(err)
         );

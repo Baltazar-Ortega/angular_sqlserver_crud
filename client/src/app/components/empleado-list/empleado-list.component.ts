@@ -22,7 +22,7 @@ export class EmpleadoListComponent implements OnInit {
         .subscribe(
           res => {
             console.log('recordset empleados', res);
-            this.empleados = res.recordset;
+            this.empleados = (res as any).recordset;
           },
           err => console.error(err)
         );

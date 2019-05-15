@@ -31,7 +31,7 @@ export class CosmeticoFormComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.cosmetico = res.recordset[0];
+            this.cosmetico = (res as any).recordset[0];
             this.edit = true;
           },
           err => console.log(err)

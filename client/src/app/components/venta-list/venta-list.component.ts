@@ -21,7 +21,7 @@ export class VentaListComponent implements OnInit {
     this.ventasService.getVentas() // Esto es un observable
         .subscribe(
           res => {
-            this.ventas = res.recordset;
+            this.ventas = (res as any).recordset;
             console.log(res);
           },
           err => console.error(err)

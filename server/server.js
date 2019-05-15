@@ -30,9 +30,20 @@ var dbConfig = {
     password: "sqlserver2012"
 };
 
+
 //Function to connect to database and execute query
-var executeQuery = function(res, query){             
-     sql.connect(dbConfig, (err) => {
+var executeQuery = function(res, query){            
+  new sql.ConnectionPool(dbConfig).connect().then(pool => {
+    return pool.request().query(query).then(result =>{
+      res.send(result);
+      sql.close();
+    }).catch(err => {
+      res.status(500).send(err);
+      sql.close();
+    })
+  })
+  /*
+    sql.connect(dbConfig, (err) => {
        console.log('Comenzó conexion');
         if (err) {   
             console.log("Error while connecting database :- " + err);
@@ -55,7 +66,9 @@ var executeQuery = function(res, query){
             });
         }
       });        
+      */
 } 
+
 
 // Empleados
 
@@ -203,13 +216,13 @@ app.delete("/api/cita/:id", function(req , res){
 
 //GET API
 app.get("/api/servicio", function(req , res){
-  var query = "SELECT ser.id AS 'id', cl.nombre AS 'nombre_cliente', emp.nombre AS 'nombre_empleado', ser.fecha_hora AS 'fecha_hora' FROM servicio ser JOIN cliente cl ON cl.dni = ser.dni_cliente JOIN empleado emp ON emp.dni = ser.dni_empleado";
+  var query = "SELECT ser.id AS 'id', cl.nombre AS 'nombre_cliente', emp.nombre AS 'nombre_empleado', ser.fecha_hora AS 'fecha_hora', ser.servicio AS 'servicio' FROM servicio ser JOIN cliente cl ON cl.dni = ser.dni_cliente JOIN empleado emp ON emp.dni = ser.dni_empleado";
   executeQuery(res, query);
 });
 
 app.get("/api/servicio/:id", function(req , res){
   var  id  = req.params.id;
-  var query = "SELECT ser.id AS 'id', cl.nombre AS 'nombre_cliente', emp.nombre AS 'nombre_empleado', ser.fecha_hora AS 'fecha_hora' FROM servicio ser JOIN cliente cl ON cl.dni = ser.dni_cliente JOIN empleado emp ON emp.dni = ser.dni_empleado WHERE id = " + id;
+  var query = "SELECT ser.id AS 'id', cl.nombre AS 'nombre_cliente', emp.nombre AS 'nombre_empleado', ser.fecha_hora AS 'fecha_hora', ser.servicio AS 'servicio' FROM servicio ser JOIN cliente cl ON cl.dni = ser.dni_cliente JOIN empleado emp ON emp.dni = ser.dni_empleado WHERE id = " + id;
   executeQuery(res, query);
 });
 
