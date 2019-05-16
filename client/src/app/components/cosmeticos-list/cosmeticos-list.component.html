@@ -4,7 +4,7 @@
 
 <div class="col-md-4" *ngFor="let cosmetico of cosmeticos">
   <div class="card text-center mt-3">
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+    <div class="card-header bg-light text-dark d-flex justify-content-between align-items-center">
       {{cosmetico.nombre}}
       <button class="btn btn-danger" (click)="deleteCosmetico(cosmetico.codigo)">
         <i class="far fa-trash-alt"></i>
